@@ -1,0 +1,63 @@
+<% if flash[:notice] %>
+  <div><%= flash[:notice] %></div>
+<% end %>
+
+<div class="content">
+  <div class="form long-form">
+    <h2>New Freelancer</h2>
+    <div class="content">
+      <form method="POST" action="<%= ENV['SUB_DIR'] %>/freelancers">
+
+        <div class="long-field">
+          <label>First Name:</label>
+          <input class="field" type="text" name="first_name" required />
+        </div>
+
+        <div class="long-field">
+          <label>Last Name:</label>
+          <input class="field" type="text" name="last_name" required />
+        </div>
+
+        <div class="long-field">
+          <label>E-mail:</label>
+          <input class="field" type="text" name="e_mail" required />
+        </div>
+
+        <div class="long-field">
+          <label>Dicipline:</label>
+          <input class="field" type="text" name="dicipline" required />
+        </div>
+
+        <div class="long-field">
+          <label>Project Name (same as folder):</label>
+          <input class="field" type="text" name="project_name" required />
+        </div>
+
+        <div class="long-field">
+          <label>Workstation (PC/Mac/Suite):</label>
+          <input class="field" type="text" name="workstation" required />
+        </div>
+
+        <div class="long-field">
+          <label>Booking Duration:</label>
+          <input class="field" type="text" name="booking_duration" required />
+        </div>
+
+        <div class="long-field">
+          <label>Other Hardware/Software needs:</label>
+          <input class="field" type="text" name="other_needs" required />
+        </div>
+
+        <div class="long-field">
+          <label>Submitted by (your name):</label>
+          <input class="field" type="text" name="sender" required />
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Submit" />
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
