@@ -14,7 +14,7 @@ class Email
     Dicipline: #{request[:dicipline]}\n<br>
     Project: #{request[:project_name]}\n<br>
     Workstation: #{request[:workstation]}\n<br>
-    Booking Duration: #{request[:booking_duration]}\n<br>
+    Booking Duration: #{request[:booking_start]} - #{request[:booking_end]}\n<br><br>
     Other Hardware/Software needs: #{request[:other_needs]}\n\n<br><br>
     Submitted by: #{request[:sender]}
     "

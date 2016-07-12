@@ -20,37 +20,51 @@
 
         <div class="long-field">
           <label>E-mail:</label>
-          <input class="field" type="text" name="e_mail" required />
+          <input class="field" type="email" name="e_mail" required />
         </div>
 
         <div class="long-field">
           <label>Dicipline:</label>
-          <input class="field" type="text" name="dicipline" required />
+          <input class="field" type="text" name="dicipline" />
         </div>
 
         <div class="long-field">
-          <label>Project Name (same as folder):</label>
-          <input class="field" type="text" name="project_name" required />
+          <label>Project Name:</label>
+          <input class="field" type="text" name="project_name" placeholder="same as folder" required />
         </div>
 
-        <div class="long-field">
-          <label>Workstation (PC/Mac/Suite):</label>
-          <input class="field" type="text" name="workstation" required />
+        <div class="center-form">
+          <div>
+            <label>Workstation:</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="radio" name="workstation" value="Mac" class="css-checkbox" id="mac"/>
+            <label for="mac" class="css-label">Mac</label>
+            <input type="radio" name="workstation" value="PC" class="css-checkbox" id="pc"/>
+            <label for="pc" class="css-label">PC</label>
+            <input type="radio" name="workstation" value="Suite" class="css-checkbox" id="suite"/>
+            <label for="suite" class="css-label">Suite</label>
+          </div>
         </div>
 
-        <div class="long-field">
-          <label>Booking Duration:</label>
-          <input class="field" type="text" name="booking_duration" required />
+        <div class="center-form">
+          <div>
+            <label>Booking Dates:</label>
+          </div>
+          <label>Start:</label>
+          <input class="field datepicker" name="booking_start" required />
+          <label>End:</label>
+          <input class="field datepicker" name="booking_end" required />
         </div>
 
-        <div class="long-field">
+        <div class="center-form">
           <label>Other Hardware/Software needs:</label>
-          <input class="field" type="text" name="other_needs" required />
+          <textarea class="field" name="other_needs" rows="10" cols="56"></textarea>
         </div>
 
-        <div class="long-field">
-          <label>Submitted by (your name):</label>
-          <input class="field" type="text" name="sender" required />
+        <div class="center-field">
+          <label>Submitted by:</label>
+          <input class="field" type="text" name="sender" placeholder="Producer Name" required />
         </div>
 
         <div class="button">
