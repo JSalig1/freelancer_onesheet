@@ -8,7 +8,7 @@ class Email
 
   def body
     "
-    New Freelancer info:\n<br><br>
+    New Freelancer info for #{request[:project_name]}:\n<br><br>
     Name: #{request[:first_name]} #{request[:last_name]}\n<br>
     Email: #{request[:e_mail]}\n\n<br><br>
     Dicipline: #{request[:dicipline]}\n<br>

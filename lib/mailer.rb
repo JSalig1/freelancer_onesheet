@@ -17,7 +17,7 @@ class Mailer
     Mail.deliver do
       to      "#{ENV['RECIPIENTS']}"
       from    "1stAveMachine <do-not-reply@1stavemachine.com>"
-      subject "New Freelancer Info"
+      subject "New Freelancer info for #{email.request[:project_name]}"
 
       text_part do
         body "#{email.body}"
