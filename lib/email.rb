@@ -15,7 +15,7 @@ class Email
     Project: #{request[:project_name]}\n<br>
     Workstation: #{request[:workstation]}\n<br>
     Booking Duration: #{request[:booking_start]} - #{request[:booking_end]}\n<br><br>
-    Other Hardware/Software needs: #{request[:other_needs]}\n\n<br><br>
+    Other Hardware/Software needs and notes: #{request[:other_needs]}\n\n<br><br>
     Submitted by: #{request[:sender]}
     "
   end
