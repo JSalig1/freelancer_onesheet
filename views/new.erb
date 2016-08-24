@@ -20,7 +20,7 @@
 
         <div class="long-field">
           <label>E-mail:</label>
-          <input class="field" type="email" name="e_mail" required />
+          <input class="field" type="email" name="freelancer_email" required />
         </div>
 
         <div class="long-field">
@@ -29,8 +29,8 @@
         </div>
 
         <div class="long-field">
-          <label>Project Name:</label>
-          <input class="field" type="text" name="project_name" placeholder="same as folder" required />
+          <label>Job Folder:</label>
+          <input class="field" type="text" name="project_name" placeholder="1234N_Example_Job" required />
         </div>
 
         <div class="center-form">
@@ -58,13 +58,16 @@
         </div>
 
         <div class="center-form">
-          <label>Other Hardware/Software needs or notes:</label>
+          <label>Notes (Other Hardware/Software needs, etc)</label>
           <textarea class="field" name="other_needs" rows="10" cols="56"></textarea>
         </div>
 
         <div class="center-field">
-          <label>Submitted by:</label>
+          <div>
+            <label>Submitted by:</label>
+          </div>
           <input class="field" type="text" name="sender" placeholder="Producer Name" required />
+          <input class="field" type="email" name="producer_email" placeholder="Producer Email" required />
         </div>
 
         <div class="button">
