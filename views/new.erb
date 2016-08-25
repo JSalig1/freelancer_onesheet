@@ -30,7 +30,15 @@
 
         <div class="long-field">
           <label>Job Folder Name:</label>
-          <input class="field" type="text" name="project_name" placeholder="1234N_Example_Job" required />
+          <input
+            class="field" 
+            type="text"
+            name="project_name"
+            title="Must match job folder name. Alphanumeric only, at least one undercore, no spaces"
+            maxlength="96"
+            pattern="(?!.*__.*)[a-zA-Z0-9]+_[a-zA-Z0-9_]+[a-zA-Z0-9]"
+            placeholder="1234N_Example_Job"
+            required />
         </div>
 
         <div class="center-form">
