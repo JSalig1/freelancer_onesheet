@@ -45,6 +45,12 @@ class Email
 
     credentials = Credential.new(request)
 
+    if request[:office] == "LA"
+      server_name = "zebes"
+    else
+      server_name = "gary"
+    end
+
     "
     Please Acknowledge and Confirm<br><br>
     <strong>Freelance One Sheet:</strong><br><br>
@@ -56,7 +62,7 @@ class Email
     password: #{credentials.password}<br><br>
 
     Project: #{request[:project_name]}<br>
-    Project path: \\\\gary\\main\\JOBS\\#{request[:project_name]}<br><br>
+    Project path: \\\\#{server_name}\\main\\JOBS\\#{request[:project_name]}<br><br>
 
     WORKSTATION: #{request[:workstation]}<br><br>
 
