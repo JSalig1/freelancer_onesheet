@@ -32,7 +32,7 @@ class Email
     New Freelancer info for #{request[:project_name]}:\n<br><br>
     Name: #{full_name}\n<br>
     Email: #{request[:freelancer_email]}\n\n<br><br>
-    Dicipline: #{request[:dicipline]}\n<br>
+    Discipline: #{request[:dicipline]}\n<br>
     Project: #{request[:project_name]}\n<br>
     Workstation: #{request[:workstation]}\n<br>
     Booking Duration: #{request[:booking_start]} - #{request[:booking_end]}\n<br><br>
