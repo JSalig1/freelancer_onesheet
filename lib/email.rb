@@ -15,10 +15,17 @@ class Email
   end
 
   def one_sheet
-    {
-      subject: "Freelancer One Sheet | #{full_name}",
-      body: one_sheet_info
-    }
+    if request[:dicipline] == 'producer'
+      {
+        subject: "Producer One Sheet | #{full_name}",
+        body: producer_one_sheet_info
+      }
+    else
+      {
+        subject: "Freelancer One Sheet | #{full_name}",
+        body: one_sheet_info
+      }
+    end
   end
 
   private
@@ -39,6 +46,11 @@ class Email
     Other Hardware/Software needs and notes: #{request[:other_needs]}\n\n<br><br>
     Submitted by: #{request[:sender]}
     "
+  end
+
+  def producer_one_sheet_info
+    #to be written later for now we'll leave the old one in place.
+    one_sheet_info
   end
 
   def one_sheet_info
