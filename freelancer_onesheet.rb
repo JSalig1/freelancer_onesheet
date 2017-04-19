@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'mail'
 require 'dotenv'
 require 'icalendar'
+require 'statsd'
 require './lib/mailer'
 require './lib/email'
 require './lib/credential'
@@ -12,7 +13,11 @@ Dotenv.load
 enable :sessions
 set :session_secret, ENV['SECRET']
 
+# # Create a stats instance.
+statsd = Statsd.new('localhost', 8125)
+
 get "#{ENV['SUB_DIR']}/" do
+  statsd.increment('freelancer.pages.views')
   erb :new
 end
 

@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dogstatsd-ruby (2.2.0)
     dotenv (2.1.1)
     icalendar (2.4.0)
     mail (2.6.4)
@@ -25,6 +26,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dogstatsd-ruby
   dotenv
   icalendar
   mail
