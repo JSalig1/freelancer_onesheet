@@ -4,9 +4,12 @@ require 'mail'
 require 'dotenv'
 require 'icalendar'
 require 'datadog/statsd'
+require 'net/ldap'
 require './lib/mailer'
 require './lib/email'
 require './lib/credential'
+require './lib/active_directory_connection'
+require './lib/active_directory_user'
 
 Dotenv.load
 
@@ -22,9 +25,12 @@ get "#{ENV['SUB_DIR']}/" do
 end
 
 post "#{ENV['SUB_DIR']}/freelancers" do
-  email = Email.new(request)
+  active_directory = ActiveDirectoryConnection.new
+  ad_user = ActiveDirectoryUser.new(request)
+  account_status = active_directory.add_user(ad_user)
+  email = Email.new(request, account_status)
   mailer = Mailer.new
   mailer.compose(email)
-  flash[:notice] = "Info Submitted. Thanks!"
+  flash[:notice] = "Info Submitted. " + account_status
   redirect "#{ENV['SUB_DIR']}/"
 end

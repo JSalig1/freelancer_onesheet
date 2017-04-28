@@ -1,9 +1,10 @@
 class Email
 
-  attr_reader :request
+  attr_reader :request, :account_status
 
-  def initialize(request)
+  def initialize(request, account_status)
     @request = request
+    @account_status = account_status
   end
 
   def new_freelancer
@@ -56,11 +57,25 @@ class Email
   def one_sheet_info
 
     credentials = Credential.new(request)
+    account_info = "Account not set"
+    password_status = "Password not set"
 
     if request[:office] == "LA"
       server_name = "zebes"
     else
       server_name = "gary"
+    end
+
+    if account_status == "User Found"
+      account_info = "<strong>You're user account is already in our system</strong><br><br>"
+      password_status =
+        "Password:<br><br>
+        Speak to Chris or Jeremy if you have forgotten your password and need it reset.<br><br>"
+    else
+      account_info = "<strong>You're user account is brand new</strong><br><br>"
+      password_status =
+        "Password:<br><br>
+        First time you log in, leave password blank. You will then be asked to set one.<br><br>"
     end
 
     "
@@ -70,8 +85,11 @@ class Email
     Name: #{full_name}<br>
     Email: #{request[:freelancer_email]}<br><br>
 
-    username: #{credentials.username}<br>
-    password: #{credentials.password}<br><br>
+    #{account_info}
+
+    Username: #{credentials.username}<br>
+
+    #{password_status}
 
     Project: #{request[:project_name]}<br>
     Project path: \\\\#{server_name}\\main\\JOBS\\#{request[:project_name]}<br><br>

@@ -9,6 +9,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    net-ldap (0.15.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -30,6 +31,7 @@ DEPENDENCIES
   dotenv
   icalendar
   mail
+  net-ldap
   shotgun
   sinatra
   sinatra-flash
