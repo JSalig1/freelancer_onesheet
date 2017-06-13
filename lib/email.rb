@@ -67,12 +67,12 @@ class Email
     end
 
     if account_status == "User Found"
-      account_info = "<strong>You're user account is already in our system</strong><br><br>"
+      account_info = "<strong>Your user account is already in our system</strong><br><br>"
       password_status =
         "Password:<br><br>
-        Speak to Chris or Jeremy if you have forgotten your password and need it reset.<br><br>"
+        Speak to Chris if you have forgotten your password and need it reset.<br><br>"
     else
-      account_info = "<strong>You're user account is brand new</strong><br><br>"
+      account_info = "<strong>Your user account is brand new</strong><br><br>"
       password_status =
         "Password:<br><br>
         First time you log in, leave password blank. You will then be asked to set one.<br><br>"
