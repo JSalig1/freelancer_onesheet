@@ -70,11 +70,7 @@ class Email
       account_info = "<strong>Your user account is already in our system</strong><br><br>"
       password_status =
         "Password:<br><br>
-<<<<<<< HEAD
-        Speak to Chris if you have forgotten your password and need it reset.<br><br>"
-=======
         Speak to Jeremy if you have forgotten your password and need it reset.<br><br>"
->>>>>>> 527b60557ee9774e8a748adb5dfa2bce30f62727
     else
       account_info = "<strong>Your user account is brand new</strong><br><br>"
       password_status =
