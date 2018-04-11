@@ -9,7 +9,7 @@ class Email
 
   def new_freelancer
     {
-      subject: "New Freelancer for #{request[:project_name]}",
+      subject: "New Booking | #{full_name} | #{request[:project_name]}",
       body: freelancer_info,
       cal_event: create_event
     }
@@ -70,7 +70,11 @@ class Email
       account_info = "<strong>Your user account is already in our system</strong><br><br>"
       password_status =
         "Password:<br><br>
+<<<<<<< HEAD
         Speak to Chris if you have forgotten your password and need it reset.<br><br>"
+=======
+        Speak to Jeremy if you have forgotten your password and need it reset.<br><br>"
+>>>>>>> 527b60557ee9774e8a748adb5dfa2bce30f62727
     else
       account_info = "<strong>Your user account is brand new</strong><br><br>"
       password_status =
@@ -83,7 +87,8 @@ class Email
     <strong>Freelance One Sheet:</strong><br><br>
 
     Name: #{full_name}<br>
-    Email: #{request[:freelancer_email]}<br><br>
+    Email: #{request[:freelancer_email]}<br>
+    Booking Dates: #{request[:booking_start]} through #{request[:booking_end]}<br><br>
 
     #{account_info}
 
