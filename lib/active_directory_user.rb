@@ -31,7 +31,7 @@ class ActiveDirectoryUser
   end
 
   def username
-    first_name[0].downcase + last_name.downcase
+    first_name[0].downcase + last_name.downcase.delete(' ')
   end
 
   def initials
