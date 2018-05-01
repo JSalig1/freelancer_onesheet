@@ -1,10 +1,11 @@
 class ActiveDirectoryUser
 
-  attr_reader :first_name, :last_name, :attributes
+  attr_reader :first_name, :last_name, :attributes, :credentials
 
-  def initialize(request)
-    @first_name = request[:first_name]
-    @last_name = request[:last_name]
+  def initialize(credentials)
+    @first_name = credentials.request[:first_name]
+    @last_name = credentials.request[:last_name]
+    @credentials = credentials
     @attributes = build
   end
 
@@ -19,6 +20,7 @@ class ActiveDirectoryUser
       givenname: [first_name],
       initials: [initials],
       sn: [last_name],
+      unicodePwd: [credentials.password],
       objectclass: ["top", "person", "organizationalPerson", "user"],
       samaccountname: [username],
       userprincipalname: [ username + ENV["AD_PRINCIPAL_NAME"] ],
@@ -37,4 +39,5 @@ class ActiveDirectoryUser
   def initials
     first_name[0] + last_name[0] + '.'
   end
+
 end

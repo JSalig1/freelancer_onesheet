@@ -13,12 +13,15 @@ class Credential
 
   def generate_username
     username = request[lock[0]][lock[1].to_i] + request[lock[2]]
-    username.downcase
+    username.downcase.delete(' ')
   end
 
   def generate_password
     password = request[lock[0]][lock[1].to_i] + request[lock[2]][lock[1].to_i]
-    password.upcase + lock[3]
+    str2unicodePwd(password.upcase + lock[3])
   end
 
+  def str2unicodePwd(str)
+    ('"' + str + '"').encode("utf-16le").force_encoding("utf-8")
+  end
 end

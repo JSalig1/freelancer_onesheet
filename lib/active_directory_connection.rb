@@ -6,6 +6,10 @@ class ActiveDirectoryConnection
 
     @treebase = ENV['TREEBASE']
     @ldap = Net::LDAP.new host: ENV['AD_HOST'],
+      port: 636,
+      encryption: {
+        method: :simple_tls
+      },
       auth: {
         method: :simple,
         username: ENV['AD_USERNAME'],
@@ -16,7 +20,7 @@ class ActiveDirectoryConnection
 
   def add_user(ad_user)
     if find_user(ad_user.dn_name)
-      "User Found"
+      "User Found. " + get_result
     else
       dn = fully_qualified_dn.call(ad_user.dn_name)
       groups = ENV['AD_GROUPS'].split(',').map!(&fully_qualified_dn)

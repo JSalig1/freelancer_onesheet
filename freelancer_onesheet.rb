@@ -25,8 +25,9 @@ get "#{ENV['SUB_DIR']}/" do
 end
 
 post "#{ENV['SUB_DIR']}/freelancers" do
+  credentials = Credential.new(request)
+  ad_user = ActiveDirectoryUser.new(credentials)
   active_directory = ActiveDirectoryConnection.new
-  ad_user = ActiveDirectoryUser.new(request)
   account_status = active_directory.add_user(ad_user)
   email = Email.new(request, account_status)
   mailer = Mailer.new
