@@ -29,7 +29,7 @@ post "#{ENV['SUB_DIR']}/freelancers" do
   ad_user = ActiveDirectoryUser.new(credentials)
   active_directory = ActiveDirectoryConnection.new
   account_status = active_directory.add_user(ad_user)
-  email = Email.new(request, account_status)
+  email = Email.new(request)
   mailer = Mailer.new
   mailer.compose(email)
   flash[:notice] = "Info Submitted. " + account_status

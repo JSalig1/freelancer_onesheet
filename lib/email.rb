@@ -1,10 +1,9 @@
 class Email
 
-  attr_reader :request, :account_status
+  attr_reader :request
 
-  def initialize(request, account_status)
+  def initialize(request)
     @request = request
-    @account_status = account_status
   end
 
   def new_freelancer
@@ -57,25 +56,11 @@ class Email
   def one_sheet_info
 
     credentials = Credential.new(request)
-    account_info = "Account not set"
-    password_status = "Password not set"
 
     if request[:office] == "LA"
       server_name = "zebes"
     else
       server_name = "gary"
-    end
-
-    if account_status == "User Found"
-      account_info = "<strong>Your user account is already in our system</strong><br><br>"
-      password_status =
-        "Password:<br><br>
-        Speak to Jeremy if you have forgotten your password and need it reset.<br><br>"
-    else
-      account_info = "<strong>Your user account is brand new</strong><br><br>"
-      password_status =
-        "Password:<br><br>
-        First time you log in, leave password blank. You will then be asked to set one.<br><br>"
     end
 
     "
@@ -86,16 +71,19 @@ class Email
     Email: #{request[:freelancer_email]}<br>
     Booking Dates: #{request[:booking_start]} through #{request[:booking_end]}<br><br>
 
-    #{account_info}
+    <strong>1stAve User Credentials:</strong><br><br>
 
     Username: #{credentials.username}<br>
+    Password: #{credentials.password}<br><br>
 
-    #{password_status}
+    Use this to log into workstations, the server and the '!STAVE' Wi-Fi Network.<br><br>
+
+    <strong>Project infomation:</strong><br><br>
 
     Project: #{request[:project_name]}<br>
     Project path: \\\\#{server_name}\\main\\JOBS\\#{request[:project_name]}<br><br>
 
-    WORKSTATION: #{request[:workstation]}<br><br>
+    Workstation: #{request[:workstation]}<br><br>
 
     <strong>Folder Naming Conventions:</strong><br><br>
     Dated Folders should be:<br>

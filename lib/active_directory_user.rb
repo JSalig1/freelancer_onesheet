@@ -20,7 +20,7 @@ class ActiveDirectoryUser
       givenname: [first_name],
       initials: [initials],
       sn: [last_name],
-      unicodePwd: [credentials.password],
+      unicodePwd: [str2unicodePwd(credentials.password)],
       objectclass: ["top", "person", "organizationalPerson", "user"],
       samaccountname: [username],
       userprincipalname: [ username + ENV["AD_PRINCIPAL_NAME"] ],
@@ -40,4 +40,7 @@ class ActiveDirectoryUser
     first_name[0] + last_name[0] + '.'
   end
 
+  def str2unicodePwd(str)
+    ('"' + str + '"').encode("utf-16le").force_encoding("utf-8")
+  end
 end

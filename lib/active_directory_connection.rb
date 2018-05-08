@@ -19,23 +19,26 @@ class ActiveDirectoryConnection
   end
 
   def add_user(ad_user)
+
+    dn = fully_qualified_dn.call(ad_user.dn_name)
+
     if find_user(ad_user.dn_name)
-      "User Found. " + get_result
+
+      ldap.replace_attribute( dn, :unicodePwd, ad_user.attributes[:unicodePwd] )
+      "User Found. " + get_result + "!"
+
     else
-      dn = fully_qualified_dn.call(ad_user.dn_name)
-      groups = ENV['AD_GROUPS'].split(',').map!(&fully_qualified_dn)
 
-      ldap.open do |connection|
-        connection.add(dn: dn, attributes: ad_user.attributes)
-      end
-
+      ldap.add(dn: dn, attributes: ad_user.attributes)
       enable_account(dn)
+
+      groups = ENV['AD_GROUPS'].split(',').map!(&fully_qualified_dn)
       groups.each do |group|
         set(group, dn)
       end
       set_primary_group(dn)
 
-      "Adding new user: " + get_result
+      "Adding new user: " + get_result + "!"
     end
   end
 
