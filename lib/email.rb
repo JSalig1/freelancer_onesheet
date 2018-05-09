@@ -76,7 +76,7 @@ class Email
     Username: #{credentials.username}<br>
     Password: #{credentials.password}<br><br>
 
-    Use this to log into workstations, the server and the '!STAVE' Wi-Fi Network.<br><br>
+    Use this to log into workstations, the server and the '1STAVE' Wi-Fi Network.<br><br>
 
     <strong>Project infomation:</strong><br><br>
 
