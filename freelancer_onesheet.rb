@@ -7,6 +7,7 @@ require 'datadog/statsd'
 require 'net/ldap'
 require './lib/mailer'
 require './lib/email'
+require './lib/wrap_sheet'
 require './lib/credential'
 require './lib/active_directory_connection'
 require './lib/active_directory_user'
@@ -24,6 +25,10 @@ get "#{ENV['SUB_DIR']}/" do
   erb :new
 end
 
+get "#{ENV['SUB_DIR']}/wrap-sheet" do
+  erb :wrap_sheet
+end
+
 post "#{ENV['SUB_DIR']}/freelancers" do
   credentials = Credential.new(request)
   ad_user = ActiveDirectoryUser.new(credentials)
@@ -34,4 +39,12 @@ post "#{ENV['SUB_DIR']}/freelancers" do
   mailer.compose(email)
   flash[:notice] = "Info Submitted. " + account_status
   redirect "#{ENV['SUB_DIR']}/"
+end
+
+post "#{ENV['SUB_DIR']}/wrap-sheet" do
+  wrap_sheet = WrapSheet.new(request)
+  mailer = Mailer.new
+  mailer.send_out(wrap_sheet.content)
+  flash[:notice] = "Info Submitted."
+  redirect "#{ENV['SUB_DIR']}/wrap-sheet"
 end

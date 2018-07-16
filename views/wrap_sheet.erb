@@ -1,0 +1,120 @@
+<% if flash[:notice] %>
+  <div><%= flash[:notice] %></div>
+<% end %>
+
+<div class="content">
+  <div class="form long-form">
+    <h2>Job Wrap Sheet</h2>
+    <div class="content">
+      <form method="POST" action="<%= ENV['SUB_DIR'] %>/wrap-sheet">
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="long-field">
+          <label>Job Number and Name:</label>
+          <input
+            class="field" 
+            type="text"
+            name="Project"
+            title="Must match job folder name. Alphanumeric only, at least one undercore, no spaces"
+            maxlength="96"
+            pattern="(?!.*__.*)[a-zA-Z0-9]+_[a-zA-Z0-9_]+[a-zA-Z0-9]"
+            placeholder="1234N_Job_Folder_Name"
+            required />
+        </div>
+        <br>
+        <br>
+        <div class="center-form">
+          <div>
+            <label>Finals on Codex?</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="radio" name="Codex" value="Yes" class="css-checkbox" id="yes_codex"/>
+            <label for="yes_codex" class="css-label">Yes</label>
+            <input type="radio" name="Codex" value="No" class="css-checkbox" id="no_codex"/>
+            <label for="no_codex" class="css-label">No</label>
+          </div>
+        </div>
+
+        <div class="long-field">
+          <label>Codex Directory:</label>
+          <input class="field" type="text" name="Codex Folder" placeholder="1234N_Codex_Folder_Name" required />
+        </div>
+        <br>
+        <br>
+        <div class="center-form">
+          <div>
+            <label>Clone Drive sent to Agency?</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="radio" name="Agency Drive" value="Yes" class="css-checkbox" id="yes_agency"/>
+            <label for="yes_agency" class="css-label">Yes</label>
+            <input type="radio" name="Agency Drive" value="No" class="css-checkbox" id="no_agency"/>
+            <label for="no_agency" class="css-label">No</label>
+          </div>
+        </div>
+
+        <div class="long-field">
+          <label>Agency Produer Name:</label>
+          <input class="field" type="text" name="Agency Producer" placeholder="Name" required />
+        </div>
+
+        <div class="long-field">
+          <label>Agency Producer Email:</label>
+          <input class="field" type="text" name="Agency Producer Email" placeholder="Email" required />
+        </div>
+
+        <div class="long-field">
+          <label>Tracking Number:</label>
+          <input class="field" type="text" name="Tracking Number" placeholder="Tracking" required />
+        </div>
+        <br>
+        <br>
+        <div class="center-form">
+          <div>
+            <label>Backup Drive logged and stored in StudioBase?</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="radio" name="Backup Drive" value="Yes" class="css-checkbox" id="yes_bu"/>
+            <label for="yes_bu" class="css-label">Yes</label>
+            <input type="radio" name="Backup Drive" value="No" class="css-checkbox" id="no_bu"/>
+            <label for="no_bu" class="css-label">No</label>
+          </div>
+        </div>
+
+
+        <div class="long-field">
+          <label>Backup Drive Bin Number:</label>
+          <input class="field" type="text" name="Backup Drive Bin" placeholder="Bin Number" required />
+        </div>
+
+        <div class="center-form">
+          <label>Notes:</label>
+          <textarea class="field" name="Notes" rows="10" cols="56"></textarea>
+        </div>
+
+        <div class="center-field">
+          <div>
+            <label>Submitted by:</label>
+          </div>
+          <input class="field" type="text" name="Producer" placeholder="Producer Name" required />
+          <input class="field" type="email" name="Producer Email" placeholder="Producer Email" required />
+        </div>
+
+        <div class="center-field">
+          <div>
+            <label>Executive Producer Email:</label>
+          </div>
+          <input class="field" type="email" name="EP Email" placeholder="EP Email" required />
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Submit" />
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

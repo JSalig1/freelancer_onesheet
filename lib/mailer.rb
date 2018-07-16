@@ -25,6 +25,10 @@ class Mailer
     send(email.one_sheet, recipients)
   end
 
+  def send_out(wrap_sheet)
+    send(wrap_sheet, recipients)
+  end
+
   private
 
   def send(email, recipients)
