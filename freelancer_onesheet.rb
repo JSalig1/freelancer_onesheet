@@ -25,7 +25,7 @@ get "#{ENV['SUB_DIR']}/" do
   erb :new
 end
 
-get "#{ENV['SUB_DIR']}/wrap-sheet" do
+get "/wrap-sheet" do
   erb :wrap_sheet
 end
 
