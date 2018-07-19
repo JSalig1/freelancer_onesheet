@@ -46,5 +46,5 @@ post "#{ENV['SUB_DIR']}/wrap-sheet" do
   mailer = Mailer.new
   mailer.send_out(wrap_sheet.content)
   flash[:notice] = "Info Submitted."
-  redirect "#{ENV['SUB_DIR']}/wrap-sheet"
+  redirect "/wrap-sheet/"
 end
