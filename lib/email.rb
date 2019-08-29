@@ -71,7 +71,14 @@ class Email
     Email: #{request[:freelancer_email]}<br>
     Booking Dates: #{request[:booking_start]} through #{request[:booking_end]}<br><br>
 
-    <strong>1stAve User Credentials:</strong><br><br>
+    <strong>1stAve Workstation  Credentials:</strong><br><br>
+
+    Username: [MACHINE NAME] (labelled on each machine)
+    Password: #{ENV['MACHINE_PW']}
+
+    <strong>***Use This login for ALL Jobs requiring 3D and Render Farm capabilities.***</strong><br><br><br>
+
+    <strong>1stAve Personal User Credentials:</strong><br><br>
 
     Username: #{credentials.username}<br>
     Password: #{credentials.password}<br><br>
