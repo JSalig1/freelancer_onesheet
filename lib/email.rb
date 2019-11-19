@@ -76,14 +76,14 @@ class Email
     Username: [MACHINE NAME] (labelled on each machine)
     Password: #{ENV['MACHINE_PW']}
 
-    <strong>***Use This login for ALL Jobs requiring 3D and Render Farm capabilities.***</strong><br><br><br>
+    <strong>***Use this to log into your assigned machine.***</strong><br><br><br>
 
     <strong>1stAve Personal User Credentials:</strong><br><br>
 
     Username: #{credentials.username}<br>
     Password: #{credentials.password}<br><br>
 
-    Use this to log into workstations, the server and the '1STAVE' Wi-Fi Network.<br><br>
+    Use this to log into the server and the '1STAVE' Wi-Fi Network.<br><br>
 
     <strong>Project infomation:</strong><br><br>
 
