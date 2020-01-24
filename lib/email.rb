@@ -55,12 +55,33 @@ class Email
 
   def one_sheet_info
 
-    credentials = Credential.new(request)
-
     if request[:office] == "LA"
       server_name = "zebes"
     else
       server_name = "gary"
+    end
+
+    if request[:dicipline] == "producer"
+
+      credentials = Credential.new(request)
+
+      login = "
+      <strong>1stAve User Credentials:</strong><br><br>
+
+      Username: #{credentials.username}<br>
+      Password: #{credentials.password}<br><br>
+
+      <strong>***Use this to log into the server and the '1STAVE' Wi-Fi Network.***</strong><br><br>
+      "
+    else
+      login = "
+      <strong>1stAve Workstation Credentials:</strong><br><br>
+
+      Username: [MACHINE NAME] (labelled on each machine)<br>
+      Password: #{ENV['MACHINE_PW']}<br><br>
+
+      <strong>***Use this to log into your assigned machine and the server.***</strong><br><br><br>
+      "
     end
 
     "
@@ -71,19 +92,7 @@ class Email
     Email: #{request[:freelancer_email]}<br>
     Booking Dates: #{request[:booking_start]} through #{request[:booking_end]}<br><br>
 
-    <strong>1stAve Workstation  Credentials:</strong><br><br>
-
-    Username: [MACHINE NAME] (labelled on each machine)
-    Password: #{ENV['MACHINE_PW']}
-
-    <strong>***Use this to log into your assigned machine.***</strong><br><br><br>
-
-    <strong>1stAve Personal User Credentials:</strong><br><br>
-
-    Username: #{credentials.username}<br>
-    Password: #{credentials.password}<br><br>
-
-    Use this to log into the server and the '1STAVE' Wi-Fi Network.<br><br>
+    #{login}
 
     <strong>Project infomation:</strong><br><br>
 

@@ -30,10 +30,14 @@ get "/wrap-sheet/" do
 end
 
 post "#{ENV['SUB_DIR']}/freelancers" do
-  credentials = Credential.new(request)
-  ad_user = ActiveDirectoryUser.new(credentials)
-  active_directory = ActiveDirectoryConnection.new
-  account_status = active_directory.add_user(ad_user)
+  if request[:dicipline] == "producer"
+    credentials = Credential.new(request)
+    ad_user = ActiveDirectoryUser.new(credentials)
+    active_directory = ActiveDirectoryConnection.new
+    account_status = active_directory.add_user(ad_user)
+  else
+    account_status = "No Active Directory account needed."
+  end
   email = Email.new(request)
   mailer = Mailer.new
   mailer.compose(email)
