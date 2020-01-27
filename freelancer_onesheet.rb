@@ -30,7 +30,7 @@ get "/wrap-sheet/" do
 end
 
 post "#{ENV['SUB_DIR']}/freelancers" do
-  if request[:dicipline] == "producer"
+  if request[:dicipline] == "producer" or request[:dicipline] == "intern"
     credentials = Credential.new(request)
     ad_user = ActiveDirectoryUser.new(credentials)
     active_directory = ActiveDirectoryConnection.new

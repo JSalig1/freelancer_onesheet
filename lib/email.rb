@@ -61,7 +61,7 @@ class Email
       server_name = "gary"
     end
 
-    if request[:dicipline] == "producer"
+    if request[:dicipline] == "producer" or request[:dicipline] == "intern"
 
       credentials = Credential.new(request)
 
