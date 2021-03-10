@@ -22,7 +22,8 @@ statsd = Datadog::Statsd.new('localhost', 8125)
 
 get "#{ENV['SUB_DIR']}/" do
   statsd.increment('freelancer.pages.views')
-  erb :new
+  #erb :new
+  redirect "https://forms.monday.com/forms/d5c7024f48e030a00dba973f4842a556?r=use1"
 end
 
 get "/wrap-sheet/" do
